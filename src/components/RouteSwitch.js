@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import ShoppingCart from "./ShoppingCart";
+import cartPage from "./cartPage";
 
 const RouteSwitch = (props) => {
     return (
