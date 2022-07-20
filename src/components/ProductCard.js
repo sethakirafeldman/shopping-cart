@@ -1,18 +1,22 @@
 import React from "react";
-import data from "../data.json"
+import data from "../../public/data.json"
 
 const ProductCard = () => {
     console.log(data.products);
+
     return (
-        data.products.map( (card) => {
-            <div 
-                key = {card.index}
-                className="product-card"
-            >
-                <h3>{card.name}</h3>
-                <p>{card.description}</p>
-            </div>
-        })
+        <div>
+            <h1>Products</h1>
+            {data.products.map( (item) => {
+            return (
+                <div key = {item.index}>
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <img src={item.src} />
+                </div>
+            )
+        })}
+        </div>
     )
 }
 
