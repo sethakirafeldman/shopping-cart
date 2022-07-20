@@ -3,14 +3,16 @@
         "name": "Guitar Capo",
         "index":0,
         "description": "Quickly change the key of the song with this capo.",
-        "price": "8.99"
+        "price": "8.99",
+        "src": "/assets/capo.jpg"
     },
     
     {
         "name": "String Winder and Cutter",
         "index": 1,
         "description": "Resting your guitar in record time with this tool!",
-        "price": "16.99"
+        "price": "16.99",
+        "src": "/assets/stringwinder.jpg"
     }  
 ]   
 
