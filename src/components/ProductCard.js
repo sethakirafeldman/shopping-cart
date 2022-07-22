@@ -1,15 +1,14 @@
 import React from "react";
-import data from "../data.json"
-import capo from "../assets/capo.jpg"
+// import data from "../data.json"
 
-const ProductCard = () => {
-    console.log(data.products);
+const ProductCard = (props) => {
+    console.log(props.data);
 
     return (
         <div>
             <h1>Products</h1>
-            {data.products.map( (item) => {
-                console.log(window.location.origin + item.src)
+            {props.data.products.map( (item) => {
+                console.log(item.src)
             return (
                 <div key = {item.index}>
                     <h3>{item.name}</h3>

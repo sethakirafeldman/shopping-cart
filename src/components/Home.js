@@ -1,10 +1,10 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-const Home = () =>{
+const Home = (props) =>{
     return (
         <>  
-                    <ProductCard />            
+            <ProductCard data = {props.data}/>            
         </>
     )
 }
