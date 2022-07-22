@@ -19,3 +19,20 @@ nav {
   justify-content: space-evenly;
   border-style: solid;
 }
+#products-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-card {
+  border-style: solid;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  margin: 2px;
+  width: 200px;
+} 
+.product-image {
+  width: 200px;
+  overflow: none;
+}

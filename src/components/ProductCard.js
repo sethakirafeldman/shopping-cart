@@ -1,23 +1,32 @@
 import React from "react";
-// import data from "../data.json"
 
 const ProductCard = (props) => {
     console.log(props.data);
 
     return (
-        <div>
-            <h1>Products</h1>
+    <>
+        <h1>Products</h1>
+        <div id="products-container">
             {props.data.products.map( (item) => {
-                console.log(item.src)
             return (
-                <div key = {item.index}>
+                <div 
+                className="product-card"
+                key = {item.index}>
                     <h3>{item.name}</h3>
                     <p>{item.description}</p>
-                    <img src={window.location.origin + item.src} />
+                    <img 
+                        className="product-image"
+                        alt={item.name}
+                        src={item.src} 
+                    />
+                    <h4>{item.price}</h4>
+                    <i class="fa-solid fa-cart-plus"></i>
+
                 </div>
             )
         })}
         </div>
+    </>
     )
 }
 
