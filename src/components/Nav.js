@@ -1,14 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Nav = (props) => {
     return (
     <nav>
-        <i className="fa-solid fa-house"></i>
+        <Link to = "/home">
+            <i 
+                className="fa-solid fa-house"
+                id = "home"
+            ></i> 
+        </Link>    
         <h1>Shopping Cart Site</h1>
-        <div className='shopping-cart'>
-            <i className="fa-solid fa-cart-shopping"></i>
-            <i className="fa-solid fa-text">{props.cartCount}</i>
-        </div>
+        <Link to="/cart" >
+            <div className='shopping-cart'>
+                <i 
+                    className="fa-solid fa-cart-shopping"
+                    id = "cart"
+                ></i>
+                <i 
+                    className="fa-solid fa-text"
+                >{props.cartCount}</i>
+            </div>
+        </Link>
     </nav>
     )
 }

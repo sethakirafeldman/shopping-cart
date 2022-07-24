@@ -1,7 +1,6 @@
 import React from "react";
 
 const ProductCard = (props) => {
-    console.log(props.data);
 
     return (
     <>
@@ -19,8 +18,8 @@ const ProductCard = (props) => {
                         alt={item.name}
                         src={item.src} 
                     />
-                    <h4>{item.price}</h4>
-                    <i class="fa-solid fa-cart-plus"></i>
+                    <h4>{`$${item.price}`}</h4>
+                    <i className="fa-solid fa-cart-plus"></i>
 
                 </div>
             )

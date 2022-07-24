@@ -2,10 +2,11 @@ import React from 'react';
 import ProductCard from './ProductCard';
 
 const Home = (props) =>{
+
     return (
-        <>  
-            <ProductCard data = {props.data}/>            
-        </>
+    <>  
+        <ProductCard data = {props.data}/>            
+    </>
     )
 }
 
