@@ -10,7 +10,9 @@ const ProductCard = (props) => {
             return (
                 <div 
                 className="product-card"
-                key = {item.index}>
+                key = {item.index}
+                id={`item-${item.index}`}
+                >
                     <h3>{item.name}</h3>
                     <p>{item.description}</p>
                     <img 
@@ -19,8 +21,32 @@ const ProductCard = (props) => {
                         src={item.src} 
                     />
                     <h4>{`$${item.price}`}</h4>
-                    <i className="fa-solid fa-cart-plus"></i>
-
+                    <div 
+                        className="quantity"
+                        id={`product-${item.index}`}
+                        >
+                        <input 
+                            className ="quantity-input" 
+                            type= "number" 
+                            placeholder="0"
+                            onChange={(event) => (props.handleChange(event))}
+                            ></input>
+                        <i 
+                            className="fa-solid fa-minus"
+                            onClick={(event, operator)=>(props.handleIncrement(event, "minus"))}
+                        
+                            >
+                            </i>
+                        <i 
+                            className="fa-solid fa-plus"
+                            onClick={(event, operator) => (props.handleIncrement(event, "plus"))}
+                            
+                        ></i>
+                        <i 
+                            className="fa-solid fa-cart-plus"
+                            onClick={props.addToCart} 
+                             ></i>
+                    </div>
                 </div>
             )
         })}
