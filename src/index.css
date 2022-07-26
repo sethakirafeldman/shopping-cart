@@ -36,3 +36,10 @@ nav {
   width: 200px;
   overflow: none;
 }
+.quantity {
+  display: flex;
+  justify-content: space-evenly;
+}
+.quantity-input {
+  width: 20px;
+}
