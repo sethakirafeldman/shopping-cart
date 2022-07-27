@@ -9,9 +9,9 @@ const ProductCard = (props) => {
             {props.data.products.map( (item) => {
             return (
                 <div 
-                className="product-card"
-                key = {item.index}
-                id={`item-${item.index}`}
+                    className="product-card"
+                    key = {item.index}
+                    id={`item-${item.index}`}
                 >
                     <h3>{item.name}</h3>
                     <p>{item.description}</p>
@@ -33,16 +33,17 @@ const ProductCard = (props) => {
                             ></input>
                         <i 
                             className="fa-solid fa-minus"
-                            onClick={(event, operator)=>(props.handleIncrement(event, "minus"))}
+                            onClick={(event)=>(props.handleIncrement(event, "minus"))}
                         
                             >
                             </i>
                         <i 
                             className="fa-solid fa-plus"
-                            onClick={(event, operator) => (props.handleIncrement(event, "plus"))}
+                            onClick={(event) => (props.handleIncrement(event, "plus"))}
                             
                         ></i>
                         <i 
+                            data-testid="cart-test"
                             className="fa-solid fa-cart-plus"
                             onClick={props.addToCart} 
                              ></i>

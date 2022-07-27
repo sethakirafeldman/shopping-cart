@@ -32,6 +32,7 @@ function App() {
         input.value++;
       }
     }
+    
     else {
       if (operator =="plus") {
         input.value++
