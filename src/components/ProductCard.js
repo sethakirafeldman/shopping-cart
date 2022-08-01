@@ -32,17 +32,18 @@ const ProductCard = (props) => {
                             onChange={(event) => (props.handleChange(event))}
                             ></input>
                         <i 
+                            alt = "reduce number of items"
                             className="fa-solid fa-minus"
                             onClick={(event)=>(props.handleIncrement(event, "minus"))}
-                        
                             >
                             </i>
                         <i 
+                            alt = "increase number of items"
                             className="fa-solid fa-plus"
                             onClick={(event) => (props.handleIncrement(event, "plus"))}
-                            
                         ></i>
                         <i 
+                            alt ="add to cart icon"
                             data-testid="cart-test"
                             className="fa-solid fa-cart-plus"
                             onClick={props.addToCart} 
