@@ -10,13 +10,19 @@ function App() {
   const [itemCount, setItemCount] = useState({});
   const [cartCount, setCartCount] = useState(0);
 
+  // allows only whole numbers
+  const handleKeyPress = (event) => {
+      if (event.key == "-" || event.key == "." ) {
+        event.preventDefault();
+      }
+  };
+
   const handleChange = (event) => {
-    console.log(event.target.parentElement.id)
-    setItemCount(event.target.value);
-    setItemCount({
-      "name": event.target.parentElement.id,
-      "quantity": event.target.value
-    })
+      setItemCount(event.target.value);
+      setItemCount({
+        "name": event.target.parentElement.id,
+        "quantity": event.target.value
+      })
 
   }
 
@@ -56,6 +62,7 @@ function App() {
           <Route path = "/" element={<Navigate to ="/home"/>}></Route>
           <Route path = "/home" element = {<Home 
             data = {data}
+            handleKeyPress = {handleKeyPress}
             handleChange = {handleChange}
             addToCart = {addToCart}
             handleIncrement = {handleIncrement}

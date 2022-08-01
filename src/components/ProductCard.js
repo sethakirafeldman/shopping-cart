@@ -29,7 +29,11 @@ const ProductCard = (props) => {
                             className ="quantity-input" 
                             type= "number" 
                             placeholder="0"
-                            onChange={(event) => (props.handleChange(event))}
+                            min="0"
+                            step= "1"
+                            onKeyDown={(event)=>props.handleKeyPress(event)}
+                            onChange={(event) => {
+                                (props.handleChange(event))}}
                             ></input>
                         <i 
                             alt = "reduce number of items"
