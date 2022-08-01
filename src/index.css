@@ -40,6 +40,19 @@ nav {
   display: flex;
   justify-content: space-evenly;
 }
+
+/* remove number filed arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+  -moz-appearance: textfield;
+}
+
 .quantity-input {
-  width: 20px;
+  width: 30px;
+  text-align: right;
 }
