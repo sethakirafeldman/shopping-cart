@@ -1,5 +1,5 @@
 import capo from "./assets/capo.jpg";
-import stringwinder from "./assets/stringwinder.jpg";
+import guitartuner from "./assets/guitartuner.jpg";
 import guitarpicks from "./assets/guitarpicks.jpg";
 import guitarstand from "./assets/guitarstand.jpg";
 import acousticcase from "./assets/acousticcase.jpg";
@@ -14,11 +14,11 @@ const data =
     },
     
     {
-        "name": "String Winder and Cutter",
+        "name": "Clip On Guitar Tuner",
         "index": 1,
-        "description": "Resting your guitar in record time with this tool!",
+        "description": "Stay in tune with this clip on.",
         "price": "16.99",
-        "src": stringwinder
+        "src": guitartuner
     },
     
     {
