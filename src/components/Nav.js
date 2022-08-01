@@ -6,6 +6,7 @@ const Nav = (props) => {
     <nav>
         <Link to = "/home">
             <i 
+                aria-label="Open Home"
                 className="fa-solid fa-house"
                 id = "home"
             ></i> 
@@ -13,11 +14,13 @@ const Nav = (props) => {
         <h1>Shopping Cart Site</h1>
         <Link to="/cart" >
             <div className='shopping-cart'>
-                <i 
+                <i  
+                    aria-label="Open Cart"
                     className="fa-solid fa-cart-shopping"
                     id = "cart"
                 ></i>
                 <i 
+                    aria-label="Cart Count"
                     className="fa-solid fa-text"
                 >{props.cartCount}</i>
             </div>
