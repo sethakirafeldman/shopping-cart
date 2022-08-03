@@ -7,7 +7,7 @@ import data from "./data.js";
 
 function App() {
 
-  const [itemCount, setItemCount] = useState({});
+  const [itemCount, setItemCount] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
   // allows only whole numbers
@@ -18,12 +18,18 @@ function App() {
   };
 
   const handleChange = (event) => {
-      setItemCount(event.target.value);
-      setItemCount({
-        "name": event.target.parentElement.id,
-        "quantity": event.target.value
-      })
-
+      // setItemCount(event.target.value);
+      // add to item count array
+      // setItemCount(prevState =>[
+      //   ...prevState,
+      //   {
+      //     "name": event.target.parentElement.id,
+      //     "quantity": event.target.value
+      //   }
+      // ])
+//itemCount is updated whenever number changes
+// cart number val updates but this logic should be handled on the cart page for to ensure duplicates
+// value in text field should clear after add to cart
   }
 
   const handleIncrement = (event, operator) => {
@@ -46,10 +52,23 @@ function App() {
     }
   }
 
-  const addToCart = () => {
-    let temp = Number(itemCount.quantity);
-    // updates cart number
-    setCartCount((prevState)=> prevState + temp);
+  const addToCart = (event, index) => {
+
+    let parent = event.target.parentElement;
+    let inputVal = parent.querySelector("input").value;
+
+    setItemCount(prevState =>[
+      ...prevState,
+      {
+        "name": parent.id,
+        "quantity": inputVal,
+        index: index
+      }
+    ])
+    setCartCount(prevState =>{
+      ...prevState,
+      inputVal
+     );}
   }
 
   return (
@@ -67,7 +86,10 @@ function App() {
             addToCart = {addToCart}
             handleIncrement = {handleIncrement}
           />} />
-          <Route path = "/cart" element = {<CartPage />} />
+          <Route path = "/cart" element = {<CartPage 
+            itemCount = {itemCount}
+            data = {data}
+            />} />
         </Route>
       </Routes>  
     </div>
