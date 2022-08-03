@@ -50,7 +50,7 @@ const ProductCard = (props) => {
                             alt ="add to cart icon"
                             data-testid="cart-test"
                             className="fa-solid fa-cart-plus"
-                            onClick={props.addToCart} 
+                            onClick={(event) => (props.addToCart(event, item.index))} 
                              ></i>
                     </div>
                 </div>
