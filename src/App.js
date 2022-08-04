@@ -57,7 +57,7 @@ function App() {
     let parent = event.target.parentElement;
     let inputVal = parent.querySelector("input").value;
 
-    setItemCount(prevState =>[
+    setItemCount(prevState => [
       ...prevState,
       {
         "name": parent.id,
@@ -65,10 +65,11 @@ function App() {
         index: index
       }
     ])
-    setCartCount(prevState =>{
-      ...prevState,
-      inputVal
-     );}
+    // updates cart counter.
+    setCartCount(prevState =>   
+        Number(inputVal) + Number(prevState)
+      )
+       
   }
 
   return (
