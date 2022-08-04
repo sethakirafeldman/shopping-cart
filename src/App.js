@@ -6,8 +6,9 @@ import React, {useState} from 'react';
 import data from "./data.js";
 
 function App() {
-
+  // store all
   const [itemCount, setItemCount] = useState([]);
+  const [quantity, setQuantity] = useState();
   const [cartCount, setCartCount] = useState(0);
 
   // allows only whole numbers
@@ -16,21 +17,6 @@ function App() {
         event.preventDefault();
       }
   };
-
-  const handleChange = (event) => {
-      // setItemCount(event.target.value);
-      // add to item count array
-      // setItemCount(prevState =>[
-      //   ...prevState,
-      //   {
-      //     "name": event.target.parentElement.id,
-      //     "quantity": event.target.value
-      //   }
-      // ])
-//itemCount is updated whenever number changes
-// cart number val updates but this logic should be handled on the cart page for to ensure duplicates
-// value in text field should clear after add to cart
-  }
 
   const handleIncrement = (event, operator) => {
     let parent = event.target.parentElement;
@@ -55,24 +41,36 @@ function App() {
   const addToCart = (event, index) => {
 
     let parent = event.target.parentElement;
-    let inputVal = parent.querySelector("input").value;
+    let inputVal = Number(parent.querySelector("input").value);
+    // needs to check if item already exists
 
+    // deal with array separately.
+
+    let arr = [];
+    
+    
     setItemCount(prevState => [
+
       ...prevState,
+      prevState.name !== parent.id?
+      
       {
         "name": parent.id,
         "quantity": inputVal,
         index: index
       }
+      :
+      null
     ])
 
     // updates cart counter.
     setCartCount(prevState =>   
-        Number(inputVal) + Number(prevState)
+        inputVal + prevState
       )
 
     // set input value back to default (0)  
     console.log(parent.querySelector("input"))  
+    
   }
 
   return (
@@ -86,9 +84,9 @@ function App() {
           <Route path = "/home" element = {<Home 
             data = {data}
             handleKeyPress = {handleKeyPress}
-            handleChange = {handleChange}
             addToCart = {addToCart}
             handleIncrement = {handleIncrement}
+
           />} />
           <Route path = "/cart" element = {<CartPage 
             itemCount = {itemCount}

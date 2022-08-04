@@ -1,6 +1,18 @@
 import React from 'react';
 
 const CartPage = (props) =>{
+
+    // checkes for duplicate cart items then adds 
+    // doesn't work for adding unique products though.
+    for (let i=0; i < props.itemCount.length; i++) {
+        for (let j=1; j < props.itemCount.length; j++) {
+            if (props.itemCount[i].name === props.itemCount[j].name) {
+                props.itemCount[i].quantity += props.itemCount[j].quantity;
+                props.itemCount.splice(j);
+            }
+        }
+    }
+
     const product = props.data.products;
     return (
         <>
