@@ -26,6 +26,10 @@ nav {
   justify-content: space-evenly;
 }
 
+h1 {
+  text-align: center;
+}
+
 .product-card {
   border-style: solid;
   border-radius: 8px;
@@ -34,6 +38,7 @@ nav {
   margin: 2px;
   max-width: 100%;
 } 
+
 .product-image {
   width: 200px;
   overflow: none;
@@ -57,4 +62,12 @@ input[type=number]{
 .quantity-input {
   width: 30px;
   text-align: right;
+}
+
+#cart-container{
+  display: flex;
+  flex-direction: row;
+}
+.cart-thumbnail {
+  width: 25%;
 }

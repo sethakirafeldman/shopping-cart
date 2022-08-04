@@ -3,11 +3,12 @@ import guitartuner from "./assets/guitartuner.jpg";
 import guitarpicks from "./assets/guitarpicks.jpg";
 import guitarstand from "./assets/guitarstand.jpg";
 import acousticcase from "./assets/acousticcase.jpg";
+
 const data =
 {"products": [
     {
         "name": "Guitar Capo",
-        "index":0,
+        "index": 0,
         "description": "Quickly change the key of the song with this capo.",
         "price": "8.99",
         "src": capo

@@ -1,24 +1,23 @@
 import React from 'react';
 
 const CartPage = (props) =>{
-    console.log(props.itemCount);
-    // do something with grabbing the end of name prop to get image from
-    // data.js
-    console.log(props.data.products[0].src)
-
+    const product = props.data.products;
     return (
         <>
             <h1>Cart</h1>
+            <section id='cart-container'>
             {props.itemCount.map((item) => {
                 return( 
-                <div className = "cart-item"key ={item.name}>
-                    <h4>{item.name}</h4>
+
+                <div className = "product-card" key ={item.name}>
+                    <h4>{product[item.index].name}</h4>
+                    <img src= {product[item.index].src}  className="cart-thumbnail"/>
                     <h5>{item.quantity}</h5>
-                    <img src= {props.data.products[item.index].src} />
                 </div>
                 )
             })
-            }         
+            }    
+            </section>     
         </>
     )
 }

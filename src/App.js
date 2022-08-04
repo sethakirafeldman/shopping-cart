@@ -65,11 +65,14 @@ function App() {
         index: index
       }
     ])
+
     // updates cart counter.
     setCartCount(prevState =>   
         Number(inputVal) + Number(prevState)
       )
-       
+
+    // set input value back to default (0)  
+    console.log(parent.querySelector("input"))  
   }
 
   return (
