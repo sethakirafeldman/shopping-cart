@@ -7,8 +7,7 @@ import data from "./data.js";
 
 function App() {
   // store all
-  const [itemCount, setItemCount] = useState([]);
-  const [quantity, setQuantity] = useState();
+  const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
   // allows only whole numbers
@@ -22,55 +21,47 @@ function App() {
     let parent = event.target.parentElement;
     let input = parent.querySelector('.quantity-input');
 
-    if (input.value > 0) {
-      if (operator == "minus") {
+    if (operator =="minus") {
+      if (input.value > 0) {
         input.value--;
       }
-      else {
-        input.value++;
-      }
     }
-    
-    else {
-      if (operator =="plus") {
-        input.value++
-      }
+
+    else if (operator =="plus") {
+      input.value++;
     }
   }
 
   const addToCart = (event, index) => {
-
+    // const checkExisting = cartItems.find((product => {
+    //   product.name ==
+    // }))
+    
     let parent = event.target.parentElement;
     let inputVal = Number(parent.querySelector("input").value);
     // needs to check if item already exists
+    // cartItems is array held in State. 
+    //check for duplicate cartItems[index].name
+    // add quantity vals together if match, then remove extra
 
-    // deal with array separately.
-
-    let arr = [];
-    
-    
-    setItemCount(prevState => [
-
+    setCartItems(prevState => [ 
       ...prevState,
-      prevState.name !== parent.id?
-      
       {
         "name": parent.id,
         "quantity": inputVal,
         index: index
       }
-      :
-      null
-    ])
+    ]
+    );
 
+
+    
     // updates cart counter.
     setCartCount(prevState =>   
         inputVal + prevState
       )
-
     // set input value back to default (0)  
     console.log(parent.querySelector("input"))  
-    
   }
 
   return (
@@ -89,7 +80,7 @@ function App() {
 
           />} />
           <Route path = "/cart" element = {<CartPage 
-            itemCount = {itemCount}
+            cartItems = {cartItems}
             data = {data}
             />} />
         </Route>

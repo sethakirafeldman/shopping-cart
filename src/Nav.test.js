@@ -2,7 +2,7 @@ import React from 'react';
 import {render, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from "@testing-library/user-event";
-import Nav from "./Nav.js"
+import Nav from "./components/Nav.js"
 import { MemoryRouter } from 'react-router-dom';
 
 describe("nav component loads", () => {
