@@ -33,29 +33,39 @@ function App() {
   }
 
   const addToCart = (event, index) => {
-    // const checkExisting = cartItems.find((product => {
-    //   product.name ==
-    // }))
+    // id of parent will be used to check prod name.
+    const parent = event.target.parentElement;
+    const inputVal = Number(parent.querySelector("input").value);
+
+    // search to see if product already in cart. 
+    let checkExisting = cartItems.find((product) => {
+      return product.name == parent.id
+    })
     
-    let parent = event.target.parentElement;
-    let inputVal = Number(parent.querySelector("input").value);
-    // needs to check if item already exists
-    // cartItems is array held in State. 
-    //check for duplicate cartItems[index].name
-    // add quantity vals together if match, then remove extra
+    if (checkExisting) {
+      // if item in cart, update quantity
+      setCartItems([ 
+        {
+          "name": parent.id,
+          "quantity": inputVal + checkExisting.quantity,
+          index: index
+        }
+      ]
+      );
+    }
 
-    setCartItems(prevState => [ 
-      ...prevState,
-      {
-        "name": parent.id,
-        "quantity": inputVal,
-        index: index
-      }
-    ]
-    );
+    else {
+      setCartItems(prevState => [ 
+        ...prevState,
+        {
+          "name": parent.id,
+          "quantity": inputVal,
+          index: index
+        }
+      ]
+      );
+    }
 
-
-    
     // updates cart counter.
     setCartCount(prevState =>   
         inputVal + prevState
