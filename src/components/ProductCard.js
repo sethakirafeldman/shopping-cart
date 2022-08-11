@@ -32,26 +32,25 @@ const ProductCard = (props) => {
                             min="0"
                             step= "1"
                             onKeyDown={(event)=>props.handleKeyPress(event)}
-                            onChange={(event) => {
-                                (props.handleChange(event))}}
+                            // onChange={(event) => {
+                            //     (props.handleChange(event))}}
                             ></input>
-                        <i 
+                        <button 
                             alt = "reduce number of items"
                             className="fa-solid fa-minus"
                             onClick={(event)=>(props.handleIncrement(event, "minus"))}
                             >
-                            </i>
-                        <i 
+                        </button>
+                        <button 
                             alt = "increase number of items"
                             className="fa-solid fa-plus"
                             onClick={(event) => (props.handleIncrement(event, "plus"))}
-                        ></i>
-                        <i 
+                        ></button>
+                        <button 
                             alt ="add to cart icon"
-                            data-testid="cart-test"
                             className="fa-solid fa-cart-plus"
                             onClick={(event) => (props.addToCart(event, item.index))} 
-                             ></i>
+                        ></button>
                     </div>
                 </div>
             )
