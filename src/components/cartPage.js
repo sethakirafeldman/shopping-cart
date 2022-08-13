@@ -1,11 +1,11 @@
 import React from 'react';
 
 const CartPage = (props) =>{
-    console.log(props)
+    // console.log(props)
     let itemArr = [];
     const cartItems = props.cartItems;
     const product = props.data.products;
-    console.log(cartItems)
+    // console.log(cartItems)
     // store item names somewhere as reference....
     itemArr = cartItems;
 
@@ -16,10 +16,14 @@ const CartPage = (props) =>{
             {cartItems.map((item) => {
                 return( 
                 
-                <div className = "product-card" key ={item.name}>
+                <div 
+                    className = "product-card" 
+                    key ={item.name}
+                    id = {`cartItem-${item.index}`}
+                    >
                     <h4>{product[item.index].name}</h4>
                     <img src= {product[item.index].src}  className="cart-thumbnail"/>
-                    <h5>{item.quantity}</h5>
+                    <h5 className={`quantity-item-${item.index}`}>{item.quantity}</h5>
                 </div>
 
                 )

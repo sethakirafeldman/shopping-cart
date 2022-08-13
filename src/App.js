@@ -72,6 +72,9 @@ function App() {
       )
     // set input value back to default (0)  
     console.log(parent.querySelector("input"))  
+
+
+    // function here to reset inputval field to 0
   }
 
   return (
