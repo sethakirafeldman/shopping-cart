@@ -7,14 +7,14 @@ import { MemoryRouter } from 'react-router-dom';
 
 describe("nav component loads", () => {
 
-    test('Test Nav title renders', async ()=> {
+    test('Nav title renders', async ()=> {
         render(<Nav />, {wrapper: MemoryRouter});
         const title = screen.getByText(/Shopping Cart Site/i);
         expect(title).toBeInTheDocument();
 
     });
     
-    test('user clicks cart icon', async () => {
+    test('user navigates to cart page', async () => {
         const user = userEvent.setup();
         render (<Nav />, {wrapper: MemoryRouter});
         const cartEl =  screen.getByLabelText(/Open Cart/i)
@@ -22,7 +22,7 @@ describe("nav component loads", () => {
         expect(screen.getByText(/cart/i)).toBeInTheDocument();
     })
 
-    test('update cart count', async () => {
+    test('cart count updates', async () => {
         render(<Nav cartCount = {5} />, {wrapper: MemoryRouter});
         expect(screen.getByLabelText(/Cart Count/i)).toHaveTextContent('5');
     });

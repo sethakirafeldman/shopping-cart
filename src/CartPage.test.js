@@ -20,7 +20,7 @@ const mockItems = [
     }
 ];
 
-test('items appear in cart', () => {
+test('items appear in on cart page', () => {
     render (
         <CartPage 
             cartItems = {mockItems}
@@ -35,7 +35,7 @@ test('items appear in cart', () => {
 });
 
 
-test('quantity value is correct', () => {
+test('quantity value is correct on cart page', () => {
     render (
         <CartPage 
             cartItems = {mockItems}
