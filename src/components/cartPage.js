@@ -5,7 +5,6 @@ const CartPage = (props) =>{
     let itemArr = [];
     const cartItems = props.cartItems;
     const product = props.data.products;
-    const cartDrawer = props.cartDrawer;
     // console.log(cartItems)
     // store item names somewhere as reference....
     itemArr = cartItems;
