@@ -12,7 +12,8 @@ const Nav = (props) => {
             ></i> 
         </Link>    
         <h1>Shopping Cart Site</h1>
-        <Link to="/cart" >
+        {/* <Link to="/cart" onClick={props.toggleCart}>
+            
             <div className='shopping-cart'>
                 <i  
                     aria-label="Open Cart"
@@ -24,7 +25,21 @@ const Nav = (props) => {
                     className="fa-solid fa-text"
                 >{props.cartCount}</i>
             </div>
-        </Link>
+        </Link> */}
+
+        <button className="cart-button" onClick={props.toggleCart}>
+            <div className='shopping-cart'>
+                <i  
+                    aria-label="Open Cart"
+                    className="fa-solid fa-cart-shopping"
+                    id = "cart"
+                ></i>
+                <i 
+                    aria-label="Cart Count"
+                    className="fa-solid fa-text"
+                >{props.cartCount}</i>
+            </div>
+        </button>
     </nav>
     )
 }

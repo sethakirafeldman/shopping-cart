@@ -9,6 +9,8 @@ function App() {
   // store all
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
+  const [cartDrawer, setCartDrawer] = useState(false);
+
 
   // allows only whole numbers
   const handleKeyPress = (event) => {
@@ -31,6 +33,11 @@ function App() {
       input.value++;
     }
   }
+
+  const toggleCart = () => {
+    setCartDrawer(!cartDrawer);
+    console.log(cartDrawer);
+  };
 
   const addToCart = (event, index) => {
     // id of parent will be used to check prod name.
@@ -80,6 +87,7 @@ function App() {
   return (
     <div className="App">
       <Nav 
+        toggleCart = {toggleCart}
         cartCount = {cartCount} 
       />
       <Routes>
@@ -92,12 +100,23 @@ function App() {
             handleIncrement = {handleIncrement}
 
           />} />
-          <Route path = "/cart" element = {<CartPage 
+          {/* <Route path = "/cart" element = {<CartPage 
             cartItems = {cartItems}
             data = {data}
-            />} />
+            />} /> */}
         </Route>
       </Routes>  
+      
+      {cartDrawer ? 
+        <CartPage 
+        cartItems = {cartItems}
+        data = {data}
+        cartDrawer = {cartDrawer}
+        /> 
+      : 
+      null }
+      
+
     </div>
   );
 }
