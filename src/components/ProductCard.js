@@ -4,7 +4,7 @@ const ProductCard = (props) => {
 
     return (
     <>
-        <h1>Products</h1>
+        
         <div id="products-container">
             {props.data.products.map( (item) => {
             return (
@@ -32,8 +32,6 @@ const ProductCard = (props) => {
                             min="0"
                             step= "1"
                             onKeyDown={(event)=>props.handleKeyPress(event)}
-                            // onChange={(event) => {
-                            //     (props.handleChange(event))}}
                             ></input>
                         <button 
                             alt = "reduce number of items"

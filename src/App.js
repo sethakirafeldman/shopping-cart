@@ -98,6 +98,8 @@ function App() {
             handleKeyPress = {handleKeyPress}
             addToCart = {addToCart}
             handleIncrement = {handleIncrement}
+            cartItems = {cartItems}
+            cartDrawer = {cartDrawer}
 
           />} />
           {/* <Route path = "/cart" element = {<CartPage 
@@ -107,16 +109,6 @@ function App() {
         </Route>
       </Routes>  
       
-      {cartDrawer ? 
-        <CartPage 
-        cartItems = {cartItems}
-        data = {data}
-        cartDrawer = {cartDrawer}
-        /> 
-      : 
-      null }
-      
-
     </div>
   );
 }

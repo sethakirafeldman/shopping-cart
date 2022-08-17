@@ -9,9 +9,9 @@ const CartPage = (props) =>{
     // store item names somewhere as reference....
     itemArr = cartItems;
     return (
-            <>
+            <section id='cart-container' className='cart-drawer-enter'>
                 <h1>Cart</h1>
-                <section id='cart-container'>
+                <>
                 {cartItems.map((item) => {
                     return( 
                     <div 
@@ -23,12 +23,12 @@ const CartPage = (props) =>{
                         <img src= {product[item.index].src}  className="cart-thumbnail"/>
                         <h5 className={`quantity-item-${item.index}`}>{item.quantity}</h5>
                     </div>
-
                     )
                 })
                 }    
-                </section>     
-            </>
+                </>    
+                <button className='cart-button'>Checkout</button>
+            </section>
     )
 }
 
