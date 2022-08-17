@@ -3,6 +3,7 @@ import guitartuner from "./assets/guitartuner.jpg";
 import guitarpicks from "./assets/guitarpicks.jpg";
 import guitarstand from "./assets/guitarstand.jpg";
 import acousticcase from "./assets/acousticcase.jpg";
+import vox from "./assets/vox.jpg"
 
 const data =
 {"products": [
@@ -44,6 +45,14 @@ const data =
         "description": "Take a stand",
         "price": "14.99",
         "src": guitarstand
+    },
+    
+    {
+        "name": "Vox Mini Amplifier",
+        "index": 5,
+        "description": "Big sound in your ears",
+        "price": "69.99",
+        "src": vox
     }  
 ]   
 
