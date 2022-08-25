@@ -4,13 +4,13 @@ import Home from "./components/Home";
 import CartPage from "./components/CartPage";
 import React, {useState} from 'react';
 import data from "./data.js";
+import ProductCard from "./components/ProductCard";
 
 function App() {
   // store all
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartDrawer, setCartDrawer] = useState(false);
-
 
   // allows only whole numbers
   const handleKeyPress = (event) => {
@@ -36,54 +36,51 @@ function App() {
 
   const toggleCart = () => {
     setCartDrawer(!cartDrawer);
-    console.log(cartDrawer);
   };
 
   const addToCart = (event, index) => {
-    // id of parent will be used to check prod name.
+
+    // simplify function down to adding objects to cart successfully.
+    // id of parent checked against product name
     const parent = event.target.parentElement;
     const inputVal = Number(parent.querySelector("input").value);
 
-    // search to see if product already in cart. 
-    let checkExisting = cartItems.find((product) => {
-      return product.name == parent.id
-    })
-    
+    const checkExisting = cartItems.find((item) => item.name === parent.id);
+
     if (checkExisting) {
-      // if item in cart, update quantity
-      setCartItems([ 
-        {
-          "name": parent.id,
-          "quantity": inputVal + checkExisting.quantity,
-          index: index
-        }
-      ]
-      );
+      cartItems.forEach((item, index)=> {
+        if (item.name === parent.id) {
+          const newCart = [...cartItems];
+          const updateItem = newCart[index];
+          updateItem.quantity += inputVal;
+          newCart[index] = updateItem;
+          setCartItems(newCart);
+        } 
+
+      })
     }
 
     else {
-      setCartItems(prevState => [ 
-        ...prevState,
-        {
+      setCartItems(
+      [...cartItems,
+        { 
           "name": parent.id,
           "quantity": inputVal,
-          index: index
+          "index": index
         }
-      ]
-      );
+      ])
     }
 
-    // updates cart counter.
+    // update cart counter.
     setCartCount(prevState =>   
         inputVal + prevState
-      )
-    // set input value back to default (0)  
-    console.log(parent.querySelector("input"))  
+    )
+  
+    // reset input value to 0
+    parent.querySelector("input").value = 0;
 
-
-    // function here to reset inputval field to 0
-  }
-
+  } 
+  
   return (
     <div className="App">
       <Nav 
@@ -100,12 +97,7 @@ function App() {
             handleIncrement = {handleIncrement}
             cartItems = {cartItems}
             cartDrawer = {cartDrawer}
-
           />} />
-          {/* <Route path = "/cart" element = {<CartPage 
-            cartItems = {cartItems}
-            data = {data}
-            />} /> */}
         </Route>
       </Routes>  
       
