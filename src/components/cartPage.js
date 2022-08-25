@@ -1,11 +1,10 @@
 import React from 'react';
 
 const CartPage = (props) =>{
-    // console.log(props)
+    
     let itemArr = [];
     const cartItems = props.cartItems;
     const product = props.data.products;
-    // console.log(cartItems)
     // store item names somewhere as reference....
     itemArr = cartItems;
     return (

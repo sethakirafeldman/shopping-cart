@@ -5,7 +5,6 @@ import {CSSTransition} from 'react-transition-group';
 
 const Home = (props) =>{
 
-    console.log(props.cartDrawer)
     return (
     <>    
         <h1>Products</h1>
