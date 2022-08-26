@@ -5,8 +5,8 @@ const CartPage = (props) =>{
     let itemArr = [];
     const cartItems = props.cartItems;
     const product = props.data.products;
-    // store item names somewhere as reference....
     itemArr = cartItems;
+
     return (
             <section id='cart-container' className='cart-drawer-enter'>
                 <h1>Cart</h1>
@@ -19,8 +19,9 @@ const CartPage = (props) =>{
                         id = {`cartItem-${item.index}`}
                         >
                         <h4>{product[item.index].name}</h4>
-                        <img src= {product[item.index].src}  className="cart-thumbnail"/>
+                        <img src= {product[item.index].src} className="cart-thumbnail"/>
                         <h5 className={`quantity-item-${item.index}`}>{item.quantity}</h5>
+                        <h5>{`$${product[item.index].price * item.quantity}`}</h5>
                     </div>
                     )
                 })
