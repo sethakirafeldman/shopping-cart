@@ -4,7 +4,6 @@ const ProductCard = (props) => {
 
     return (
     <>
-        
         <div id="products-container">
             {props.data.products.map( (item) => {
             return (

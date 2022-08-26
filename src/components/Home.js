@@ -17,9 +17,6 @@ const Home = (props) =>{
                 handleIncrement = {props.handleIncrement}
             />            
     
-        
-        {/* {props.cartDrawer ?  */}
-
         <CSSTransition 
             in={props.cartDrawer}
             classNames="cart-drawer"
@@ -31,9 +28,6 @@ const Home = (props) =>{
                     cartDrawer = {props.cartDrawer}
                 /> }
         </CSSTransition>
-            
-        {/* // : 
-        // null } */}
         </section>
     </>
     )
