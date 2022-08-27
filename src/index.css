@@ -108,7 +108,7 @@ input[type=number]{
   opacity: 0;
 }
 .cart-thumbnail {
-  width: 25%;
+  width: 50%;
 }
 
 .cart-button {
@@ -117,4 +117,9 @@ input[type=number]{
   color: white;
   background-color: black;
   font-size: large;
+}
+
+.cart-incrementor {
+  display: flex;
+
 }
