@@ -20,13 +20,15 @@ const Home = (props) =>{
         <CSSTransition 
             in={props.cartDrawer}
             classNames="cart-drawer"
-            timeout={200} 
-        >
+            timeout={200}>
             {<CartPage 
-                    cartItems = {props.cartItems}
-                    data = {props.data}
-                    cartDrawer = {props.cartDrawer}
-                /> }
+                cartItems = {props.cartItems}
+                data = {props.data}
+                cartDrawer = {props.cartDrawer}
+                handleIncrement = {props.handleIncrement}
+                handleChange = {props.handleChange}
+                handleKeyPress = {props.handleKeyPress}
+            /> }
         </CSSTransition>
         </section>
     </>

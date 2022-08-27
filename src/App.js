@@ -19,20 +19,45 @@ function App() {
       }
   };
 
+  const handleChange = (targetItem) => {
+    let targetIndex = targetItem.id.charAt(targetItem.id.length -1);
+
+    cartItems.forEach((cartItem, index)=> {
+      let cartIndex = cartItem.name.charAt(cartItem.name.length -1);
+      let inputVal = document.querySelector(`#quantity-item-${targetIndex}`).value;
+      if (cartIndex === targetIndex) {
+        // update setCartItems at particular index to update quantity
+        // this works, but modifies state directly.
+        let tempCart = [...cartItems];
+        let updateItem = tempCart[index];
+        updateItem.quantity = Number(inputVal);
+        setCartItems(tempCart);
+
+        // if it gets down to 0 it should remove item.
+        // and decimals need to be limited to 2 places
+      }
+    })
+
+  }
+
   const handleIncrement = (event, operator) => {
     let parent = event.target.parentElement;
     let input = parent.querySelector('.quantity-input');
 
-    if (operator =="minus") {
+    if (operator == "minus") {
       if (input.value > 0) {
         input.value--;
+        handleChange(input);
       }
     }
 
-    else if (operator =="plus") {
+    else if (operator == "plus") {
       input.value++;
+      handleChange(input);
     }
   }
+
+
 
   const toggleCart = () => {
     setCartDrawer(!cartDrawer);
@@ -95,6 +120,7 @@ function App() {
             handleKeyPress = {handleKeyPress}
             addToCart = {addToCart}
             handleIncrement = {handleIncrement}
+            handleChange = {handleChange}
             cartItems = {cartItems}
             cartDrawer = {cartDrawer}
           />} />
