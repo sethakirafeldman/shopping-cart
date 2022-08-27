@@ -21,7 +21,7 @@ function App() {
 
   const handleChange = (targetItem) => {
     let targetIndex = targetItem.id.charAt(targetItem.id.length -1);
-
+    try {
     cartItems.forEach((cartItem, index)=> {
       let cartIndex = cartItem.name.charAt(cartItem.name.length -1);
       let inputVal = document.querySelector(`#quantity-item-${targetIndex}`).value;
@@ -37,8 +37,13 @@ function App() {
         // and decimals need to be limited to 2 places
       }
     })
+  }
+
+  catch {
 
   }
+
+  };
 
   const handleIncrement = (event, operator) => {
     let parent = event.target.parentElement;
