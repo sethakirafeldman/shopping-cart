@@ -55,9 +55,13 @@ function App() {
       input.value++;
       handleChange(input);
     }
-  }
+  };
 
-
+  const calculateTotal = (val, quan) => {
+    let total = val *quan;
+    total.toFixed(2);
+    return total;
+  };
 
   const toggleCart = () => {
     setCartDrawer(!cartDrawer);
@@ -121,8 +125,10 @@ function App() {
             addToCart = {addToCart}
             handleIncrement = {handleIncrement}
             handleChange = {handleChange}
+            calculateTotal = {calculateTotal}
             cartItems = {cartItems}
             cartDrawer = {cartDrawer}
+
           />} />
         </Route>
       </Routes>  

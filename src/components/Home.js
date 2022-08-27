@@ -26,6 +26,7 @@ const Home = (props) =>{
                 data = {props.data}
                 cartDrawer = {props.cartDrawer}
                 handleIncrement = {props.handleIncrement}
+                calculateTotal = {props.calculateTotal}
                 handleChange = {props.handleChange}
                 handleKeyPress = {props.handleKeyPress}
             /> }

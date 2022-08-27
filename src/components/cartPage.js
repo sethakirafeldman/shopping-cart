@@ -51,7 +51,8 @@ const CartPage = (props) =>{
                             
                         </section>
 
-                        <h5>{`$${product[item.index].price * item.quantity}`}</h5>
+                        {/* <h5>{`$${product[item.index].price * item.quantity}`}</h5> */}
+                        {props.calculateTotal(product[item.index].price, item.quantity )}
                     </div>
                     )
                 })
